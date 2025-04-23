@@ -1,0 +1,215 @@
+.account-badge-row {
+  display: flex;
+  justify-content: flex-end;
+  height: 35px;
+
+  .account-badge {
+    width: 125px;
+
+    .Badge {
+      display: flex;
+      height: 28px;
+      justify-content: space-between;
+      padding: 0.25rem 0.5rem;
+
+      .badge-pubkey {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+  
+  // Estilos para las acciones de la cuenta (perfil y botón de desconexión)
+  .account-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    
+    // Estilos para el botón de desconexión
+    .disconnect-button {
+      margin-left: 0.5rem;
+      transition: all 0.2s ease;
+      
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
+
+// Estilos para el layout principal
+.layout {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  // Contenedor principal para el componente de saldo
+  .balance-container-main {
+    width: 450px; 
+    margin-top: 2rem;
+
+    // Estilos para el indicador de carga
+    .loading {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  // Estilos para la sección de bienvenida
+  .welcome-section {
+    width: 450px; 
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+    // Estilos para el texto descriptivo
+    .description-text {
+      margin-top: 1rem;
+      line-height: 1.5;
+    }
+  }
+
+  // Estilos para el contenedor de notificaciones
+  .notification-container {
+    position: fixed;
+    bottom: 1rem;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 9999;
+  }
+}
+
+// Estilos para la tarjeta de saldo
+.balance-card {
+  margin-bottom: 1.5rem;
+  
+  // Contenedor para la visualización del saldo
+  .balance-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    gap: 1.5rem;
+  }
+  
+  // Contenedor para cada token individual
+  .token-balance {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    background-color: var(--color-gray-10);
+    transition: all 0.2s ease;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+  // Círculo que muestra el saldo de forma visual
+  .balance-circle {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3e7bfa, #6515dd);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    box-shadow: 0 4px 15px rgba(62, 123, 250, 0.3);
+    margin-right: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    
+    // Efecto visual para el círculo
+    &::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 60%);
+      transform: rotate(45deg);
+    }
+    
+    // Estilo específico para el círculo de USDC
+    &.usdc-circle {
+      background: linear-gradient(135deg, #2775ca, #2775ca);
+      box-shadow: 0 4px 15px rgba(39, 117, 202, 0.3);
+    }
+  }
+  
+  // Estilos para el monto del saldo
+  .balance-amount {
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1;
+    text-align: center;
+    padding: 0 4px;
+    
+    // Tamaños de fuente para diferentes longitudes de balance
+    &.balance-amount-medium {
+      font-size: 1.2rem;
+    }
+    
+    &.balance-amount-small {
+      font-size: 1rem;
+    }
+  }
+  
+  // Estilos para el símbolo de la moneda
+  .balance-symbol {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-top: 0.25rem;
+  }
+  
+  // Contenedor para los detalles del saldo
+  .balance-details {
+    flex: 1;
+    overflow: hidden;
+  }
+  
+  // Etiqueta para el saldo
+  .balance-label {
+    font-size: 0.9rem;
+    color: var(--color-gray-60);
+    margin-bottom: 0.25rem;
+  }
+  
+  // Valor del saldo
+  .balance-value {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-gray-90);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  // Estilos para los estados de carga y error
+  .balance-loading, .balance-error {
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem 0;
+  }
+  
+  // Estilos específicos para el mensaje de error
+  .balance-error {
+    color: var(--color-error);
+  }
+}
+
+// Estilos para la fila del botón de conexión
+.submit-row {
+  margin-top: 1.5rem;
+}
